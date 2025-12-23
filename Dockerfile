@@ -14,5 +14,5 @@ RUN apk update \
 FROM  alpine:latest
 COPY --from=builder /usr/bin/aria2c /bin/bash /usr/bin/curl /usr/bin/jq /bin
 COPY --from=builder /libs/. /lib/
-
+COPY trackers_refresh.sh /trackers_refresh.sh
 CMD ["aria2c","--conf-path=/etc/aria2/aria2.conf"]
